@@ -1,0 +1,10 @@
+[Unit]
+Description=node_exporter
+After=network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+ExecStart=/usr/local/exporter/node_exporter/node_exporter --web.listen-address=:9109 --collector.systemd --collector.systemd.unit-whitelist=(sshd|nginx).service --collector.processes --collector.tcpstat --collector.supervisord  --web.config=/usr/local/exporter/node_exporter/config.yml 
+[Install]
+WantedBy=multi-user.target

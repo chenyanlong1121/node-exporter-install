@@ -1,0 +1,8 @@
+- job_name: "pushgateway"
+  basic_auth:
+    username: prometheus
+    password: supconit
+  honor_labels: true
+  static_configs:
+  - targets:
+    - "pushgateway:9091"
